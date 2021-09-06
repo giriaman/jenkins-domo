@@ -5,7 +5,6 @@ pipeline {
         stage ('Compile Stage') {
          
             steps {
-                 git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
                 withMaven(maven : 'maven_3_8_2') {
                     sh 'mvn clean compile'
                 }
@@ -15,7 +14,6 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
                 withMaven(maven : 'maven_3_8_2') {
                     sh 'mvn test'
                 }
@@ -26,7 +24,6 @@ pipeline {
         stage ('Deployment Stage') {
          
             steps {
-                git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
                 withMaven(maven : 'maven_3_8_2') {
                     sh 'mvn deploy'
                 }
